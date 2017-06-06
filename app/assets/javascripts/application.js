@@ -21,63 +21,89 @@
 //= require_tree .
 
 $(function(){
-$('#calendar').fullCalendar({
-	//ヘッダーの設定
-	header: {
-		//それぞれの位置に設置するボタンやタイトルをスペース区切りで指定できます。指定しない場合、非表示にできます。
-		// 'title'→月・週・日のそれぞれの表示に応じたタイトル
-		// 'prev'→前へボタン
-		// 'next'→次へボタン
-		// 'today'→当日表示ボタン
-		left: 'today prev', //左側に配置する要素
-		center: 'title', //中央に配置する要素
-		right: 'next' //右側に配置する要素
-	}
+	$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultDate: '2017-05-12',
+			navLinks: true, // can click day/week names to navigate views
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end) {
+				var title = prompt('Event Title:');
+				var eventData;
+				if (title) {
+					eventData = {
+						title: title,
+						start: start,
+						end: end
+					};
+					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+				}
+				$('#calendar').fullCalendar('unselect');
+			},
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2017-05-01'
+				},
+				{
+					title: 'Long Event',
+					start: '2017-05-07',
+					end: '2017-05-10'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2017-05-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2017-05-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2017-05-11',
+					end: '2017-05-13'
+				},
+				{
+					title: 'Meeting',
+					start: '2017-05-12T10:30:00',
+					end: '2017-05-12T12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2017-05-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2017-05-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2017-05-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2017-05-12T20:00:00'
+				},
+				{
+					title: 'Birthday Party',
+					start: '2017-05-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2017-05-28'
+				}
+			]
+		});
 
-	height: 960, //高さをピクセルで指定
-	defaultView: 'agendaDay', //初めの表示内容を指定　内容はこちらを参照→ http://fullcalendar.io/docs/views/Available_Views/
-	aditable: true, //trueでスケジュールを編集可能にする
-	allDaySlot: false,　//falseでagendaDay表示のときに全日の予定欄を非表示にする
-	
-	//時間の表示フォーマットを指定する　指定方法はこちらを参照→http://momentjs.com/docs/#/displaying/format/
-	timeFormat: {
-		agenda: 'h(:mm)'
-	},
-	slotEventOverlap: false, //スケジュールが重なったとき、重ねて表示するかどうか（falseにすると、重ねずに表示する）
-	axisFormat: 'H:mm', //時間軸に表示する時間の表示フォーマットを指定する(ヒョジ方法はtimeFormatと同じ)
-	slotDuration: '01:00:00', //表示する時間軸の細かさ
-	snapDuration: '01:00:00', //スケジュールをスナップするときの動かせる細かさ
-	minTime: "00:00:00", //スケジュールの開始時間
-	maxTime: "24:00:00", //スケジュールの最終時間
-	defaultTimedEventDuration: '01:00:00', //画面上に表示する初めの時間(スクロールされている場所)
-	eventClick: function(event) { //イベントをクリックしたときに実行
-
-	},
-	dayClick: function(date){ //イベントじゃないところをクリックしたとき(日をクリックしたとき)に実行
-
-	},
-	droppable: true, //外部要素からのドラッグアンドドロップを可にする
-	drop: function(date){ //外部要素からドラッグアンドドロップしたときに実行
-
-	},
-	eventDragStop: { //カレンダー上にドラッグし終わったときに実行
-
-	}
-
-	//カレンダーを再描画
-	$('#calendar').fullCalendar('rendar');
-
-	//カレンダーを削除
-	$('#calendar').fullCalendar('destroy');
-
-	//イベントを追加
-	$('#calendar').fullCalendar('renderEvent', event, true); //eventはeventオブジェクト
-
-	//イベントを更新
-	$('#calendar').fullCalendar('updateEvent', event);
-
-
-});
 
 });
 
