@@ -6,23 +6,13 @@ $(function() {
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
       },
-      navLinks: true, // can click day/week names to navigate views
-      selectable: true,
-      selectHelper: true,
-      select: function(start, end) {
-        var title = prompt('イベント追加:');
-        var content = window.prompt("内容を記入して")
-        var eventData;
-        if (title) {
-          eventData = {
-            title: title,
-            start: start,
-            end: end
-          };
-          $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-        }
-        $('#calendar').fullCalendar('unselect');
-      },
+     dayClick: function(date, jsEvent, view) {
+
+        $("#clickday").html("日時　" + date.format("MMM Do") );
+
+        $("#post-modal").fadeIn();
+
+    },
       
       editable: true,
       eventLimit: true, // allow "more" link when too many events
@@ -84,5 +74,10 @@ $(function() {
       ]
     });
 
+    $(".fa-times").click(function(){
+      $("#post-modal").fadeOut();
+    });
+
+    
 
 });

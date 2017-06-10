@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get '/event_calendars' => "event_calendars#index"
-  get 'events', to: 'event_calendars#show'
-  post 'events/create', to: 'event_calendars#create'
+  
 
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update]
@@ -11,4 +9,6 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get '/about' => 'home#about'
+
+  get '/event_calendars' => "event_calendars#index" , as: "calendars"
 end
