@@ -1,12 +1,9 @@
 <li>  
   <%= image_for(note.user) %>
-  <span class="user-name">
-    <%= note.user.name %>
-  </span>
   <span class="content">
-    <%= link_to note.title, note_path(note.id) %>
+   タイトル： <%= link_to note.title, note_path(note.id) %>
   </span>
   <span>
-    <%= note.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+    <%= "投稿日：" + note.created_at.strftime("%Y-%m-%d") %>
   </span>
 </li>
