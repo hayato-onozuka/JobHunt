@@ -6,11 +6,11 @@
       </div>
       <div id="login-form">
         <h2>予定|リマインダー</h2>
-        <h3 id="clickday"></h3>    
-        <form action="#">
-          <input class="form-control form-controler" type="text" placeholder="例：19:00〜22:00A社面接">
-          <div id="submit-btn" class="btn">保存</div>
-        </form>
+        <h3 id="clickday"></h3>  
+        <%= form_tag event_calendars_create_path do %>  
+          <input name="title" class="form-control form-controler" type="text" placeholder="例：19:00〜22:00A社面接">
+          <div type="submit" id="submit-btn" class="btn">保存</div>
+        <% end %>
       </div>
     </div>
 </div>

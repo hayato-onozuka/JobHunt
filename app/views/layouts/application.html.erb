@@ -13,7 +13,7 @@
       <div id="logo"><%= link_to "JobHunt", root_path %></div>
       <% if user_signed_in? %>
         <ul class="header-right">
-          <li><%= link_to "カレンダー", calendars_path, method: :post %></li>
+          <li><%= link_to "カレンダー", calendars_path, method: :get %></li>
          
           <li><%= link_to current_user.email, current_user %></li>
           
