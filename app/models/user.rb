@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :validatable
   has_many :notes
+  has_many :events
 
   validates :name, presence: true
   # deviseのvalidatableによって以下と同じバリデーションが設定されているのでコメントアウトしています
