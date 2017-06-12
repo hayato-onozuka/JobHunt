@@ -1,9 +1,21 @@
 class EventCalendarsController < ApplicationController
- 
+
  	 before_action :authenticate_user!
 
   def index
-  	gon.event = Event.all[3].title
+    #表示用データ成形
+    @events = [];
+    Event.all.each do |data|
+      @events += [
+        'title' => data['title'],
+        'start' => data['created_at'],
+        'end'   => data['updated_at'],
+        'detail'=> "aaaaaaaaaa",
+        'color' => 'red'
+        ]
+
+    gon.events = @events
+    end
   end
 
 

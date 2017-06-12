@@ -1,6 +1,6 @@
 $(function() {
 
-      $('#calendar').fullCalendar({
+  $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
         center: 'title',
@@ -15,31 +15,24 @@ $(function() {
         $("#post-modal").fadeIn();
 
     },
-    events: [
-        {
-          title: gon.event,
-          start: '2017-06-01'
-        },
-]
+    events:gon.events
+  });
 
-         
-      
-    });
 
-    $(".fa-times").click(function(){
-      $("#post-modal").fadeOut();
-    });
 
-   
-//カレンダーを再描画
-$('#calendar').fullCalendar('rendar');
- 
-//イベントを追加
-$('#calendar').fullCalendar('renderEvent', event, true);
- 
-//イベントを更新
-$('#calendar').fullCalendar('updateEvent', event);
+  $(".fa-times").click(function(){
+    $("#post-modal").fadeOut();
+  });
 
+
+  //カレンダーを再描画
+  $('#calendar').fullCalendar('rendar');
+
+  //イベントを追加
+  $('#calendar').fullCalendar('renderEvent', event, true);
+
+  //イベントを更新
+  $('#calendar').fullCalendar('updateEvent', event);
 
 
 
