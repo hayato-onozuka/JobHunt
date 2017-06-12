@@ -8,8 +8,8 @@ class EventCalendarsController < ApplicationController
     Event.all.each do |data|
       @events += [
         'title' => data['title'],
-        'start' => data['created_at'],
-        'end'   => data['updated_at'],
+        'start' => data['start'],
+        'end'   => data['end'],
         'detail'=> "aaaaaaaaaa",
         'color' => 'red'
         ]
@@ -22,6 +22,8 @@ class EventCalendarsController < ApplicationController
   def create
   	@event = Event.new
   	@event.title = params[:title]
+    @event.start = params[:start]
+    @event.end = params[:end]
   	@event.user_id = current_user.id
     @event.save
   	redirect_to calendars_path(@event.id)
