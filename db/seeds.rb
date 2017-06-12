@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Event.create(:title => '観察日記', :created_at => '2017-06-14',:updated_at => '2017-06-15',:user_id => 10)
