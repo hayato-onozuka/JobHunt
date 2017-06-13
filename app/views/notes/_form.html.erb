@@ -10,10 +10,19 @@
       </ul>
     </div>
   <% end %>
-
-  タイトル
-  <%= f.text_field :title, { class: "form-control title-field" } %>
-  内容
+  <div class="form-design-wrapper">
+<div class="form-design">
+  企業名
+  <%= f.text_field :title, {class: "form-control title-field" }  %>
+  事業内容
   <%= f.text_area :content, { class: "form-control content-field" } %>
+  会社の雰囲気
+  <%= f.text_area :content2, { class: "form-control content-field" } %>
+  職種ごとの仕事内容
+  <%= f.text_area :content3, { class: "form-control content-field" } %>
+  会社へ対する評価
+  <%= f.text_area :content4, { class: "form-control content-field" } %>
   <%= f.submit "保存", { class: "btn primary-btn" } %>
+</div>
+</div>
 <% end %>

@@ -4,7 +4,7 @@ module UsersHelper
     if user.image
       image_tag "/user_images/#{user.image}", class: "profile_img"
     else
-      image_tag "default.jpg", class: "profile_img"
+      image_tag "dafault.jpg", class: "profile_img"
     end
   end
   

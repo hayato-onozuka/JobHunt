@@ -1,0 +1,28 @@
+ <div id="calendar">
+<div id="post-modal">
+	<div class="modal">
+	<div class="close-modal">
+        <i class="fa fa-2x fa-times"></i>
+      </div>
+      <div id="login-form">
+        <h2>予定|リマインダー</h2>
+        <h3 id="clickday"></h3>  
+        <%= form_tag event_calendars_create_path do %>  
+          <input name="title" class="form-control form-controler" type="text" placeholder="例：19:00〜22:00A社面接">
+          <p>
+          開始時間
+          </p>
+          <label>
+          <input name="start" step="600" calss="form-control form-controler"
+          type="datetime-local">
+          </label>
+          <p>
+          終了時間
+          </p>
+          <input name="end" step="600" value='"2017-06-01T10:"' calss="form-control form-controler"
+          type="datetime-local">
+          <input type="submit" value="保存" id="submit-btn" class="btn"></input>
+        <% end %>
+      </div>
+    </div>
+</div>

@@ -1,9 +1,15 @@
-<p id="notice" class="alert alert-success"><%= notice %></p>
+<p id="notice" class="alert alert-success"></p>
 
-<h2>タイトル</h2>
+<h2>企業名</h2>
 <p><%= @note.title %></p>
-<h2>内容</h2>
+<h2>事業内容</h2>
 <p><%= @note.content %></p>
+<h2>会社の雰囲気</h2>
+<p><%= @note.content2 %></p>
+<h2>職種ごとの仕事内容</h2>
+<p><%= @note.content3 %></p>
+<h2>会社へ対する評価</h2>
+<p><%= @note.content4 %></p>
 
 <% if current_user?(@note.user) %>
 <%= link_to "編集", edit_note_path(@note.id), class: "btn edit-btn" %>

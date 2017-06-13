@@ -3,5 +3,8 @@ class Note < ActiveRecord::Base
 
   validates :title, presence: true
   validates :content, presence: true, length: { maximum: 140 }
+  validates :content2, presence: true, length: { maximum: 140 }
+  validates :content3, presence: true, length: { maximum: 140 }
+  validates :content4, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
 end
