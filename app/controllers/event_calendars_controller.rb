@@ -27,7 +27,7 @@ end
     if @event.save
   	redirect_to calendars_path(@event.id), notice: "保存されました"
   else
-    redirect_to calendars_path(@event.id), notice: "入力した内容に誤りがあります"
+    redirect_to calendars_path(@event.id), notice: "保存失敗：入力した内容に不備があります"
   end
 end
 

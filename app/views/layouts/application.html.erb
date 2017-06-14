@@ -17,7 +17,7 @@
         <ul class="header-right">
           <li><%= link_to "カレンダー", calendars_path, method: :get %></li>
          
-          <li><%= link_to current_user.email, current_user %></li>
+          <li><%= link_to current_user.name, current_user %></li>
           
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           
